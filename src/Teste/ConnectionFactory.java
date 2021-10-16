@@ -11,13 +11,13 @@ public class ConnectionFactory {
 	
 	private static String url="jdbc:mysql://localhost:3306/contato?useTimezone=true&serverTimezone=UTC";
 	private static String user="root";
-	private static String password="Kauanreis900";
+	private static String password="*******";
 	
 	public static Connection getConnection(){
 			//nome do driver.
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				//endereco e parametros de conex„o com o banco.
+				//endereco e parametros de conex√£o com o banco.
 				return DriverManager.getConnection(url,user,password);
 				
 			} catch (ClassNotFoundException | SQLException e) {
