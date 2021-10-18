@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 
 
 public class ContatoDao {
@@ -32,7 +34,7 @@ public class ContatoDao {
 			ps.execute();
 			ps.close();
 			
-			System.out.println("Contato salvo");
+			//System.out.println("Contato salvo");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,5 +113,189 @@ public class ContatoDao {
 			e1.printStackTrace();
 		}		
 		return contatos;
+	}
+
+	public List<Contato> BuscarIdDao(Long c) {
+
+		//List<Contato> contatos = new ArrayList<>();
+		List<Contato> contatos = new ArrayList<>();
+		try {
+			
+			String sql = "select * from contato where id=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setLong(1, c);
+			ResultSet rs = ps.executeQuery();
+
+			
+				
+			while (rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setSobrenome(rs.getString("sobrenome"));
+				contato.setIdade(rs.getInt("idade"));
+				contato.setTelefone(rs.getString("Telefone"));
+				contatos.add(contato);
+			}
+
+			rs.close();
+			
+			
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		return contatos;
+		
+	}
+
+	
+	public List<Contato> BuscarNomeDao(String nome) {
+
+		//List<Contato> contatos = new ArrayList<>();
+		List<Contato> contatos = new ArrayList<>();
+		try {
+			
+			
+			String sql = "select * from contato where nome like ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, nome);
+			ResultSet rs = ps.executeQuery();
+
+			
+				
+			while (rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setSobrenome(rs.getString("sobrenome"));
+				contato.setIdade(rs.getInt("idade"));
+				contato.setTelefone(rs.getString("Telefone"));
+				contatos.add(contato);
+			}
+
+			rs.close();
+			
+			
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		return contatos;
+		
+	}
+
+	
+	
+	public List<Contato> BuscarSobrenomeDao(String sobrenome) {
+
+		//List<Contato> contatos = new ArrayList<>();
+		List<Contato> contatos = new ArrayList<>();
+		try {
+			
+			String sql = "select * from contato where sobrenome=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, sobrenome);
+			ResultSet rs = ps.executeQuery();
+
+			
+				
+			while (rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setSobrenome(rs.getString("sobrenome"));
+				contato.setIdade(rs.getInt("idade"));
+				contato.setTelefone(rs.getString("Telefone"));
+				contatos.add(contato);
+			}
+
+			rs.close();
+			
+			
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		return contatos;
+		
+	}
+	
+	public List<Contato> BuscarIdadeDao(int idade) {
+
+		//List<Contato> contatos = new ArrayList<>();
+		List<Contato> contatos = new ArrayList<>();
+		try {
+			
+			String sql = "select * from contato where idade=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, idade);
+			ResultSet rs = ps.executeQuery();
+
+			
+				
+			while (rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setSobrenome(rs.getString("sobrenome"));
+				contato.setIdade(rs.getInt("idade"));
+				contato.setTelefone(rs.getString("Telefone"));
+				contatos.add(contato);
+			}
+
+			rs.close();
+			
+			
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		return contatos;
+		
+	}
+	
+	public List<Contato> BuscarTelefoneDao(String telefone) {
+
+		//List<Contato> contatos = new ArrayList<>();
+		List<Contato> contatos = new ArrayList<>();
+		try {
+			
+			String sql = "select * from contato where telefone=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, telefone);
+			ResultSet rs = ps.executeQuery();
+
+			
+				
+			while (rs.next()) {
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setSobrenome(rs.getString("sobrenome"));
+				contato.setIdade(rs.getInt("idade"));
+				contato.setTelefone(rs.getString("Telefone"));
+				contatos.add(contato);
+			}
+
+			rs.close();
+			
+			
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		return contatos;
+		
 	}
 }
